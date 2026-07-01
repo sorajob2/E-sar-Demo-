@@ -53,7 +53,7 @@ exports.getStaffs = async (req, res) => {
 };
 
 
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 exports.create = async (req, res) => {
 
@@ -121,7 +121,7 @@ exports.getById = async (req, res) => {
 
 exports.update = async (req, res) => {
 
-  const bcrypt = require('bcryptjs');
+  const bcrypt = require('bcrypt');
 
   const {
     username,
