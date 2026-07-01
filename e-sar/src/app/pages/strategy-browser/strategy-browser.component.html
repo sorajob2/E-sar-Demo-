@@ -1,0 +1,97 @@
+<div class="page-header">
+
+  <div>
+
+    <h2>ยุทธศาสตร์</h2>
+
+    <p>
+      เลือกยุทธศาสตร์เพื่อดูหมวดหมู่ตัวชี้วัด
+    </p>
+
+  </div>
+
+</div>
+
+<div class="search-box">
+
+  <input type="text" placeholder="ค้นหายุทธศาสตร์...">
+
+</div>
+
+<div class="table-card">
+
+  <table class="strategy-table">
+
+    <thead>
+
+      <tr>
+
+        <th width="180">
+          รหัสยุทธศาสตร์
+        </th>
+
+        <th>
+          ชื่อยุทธศาสตร์
+        </th>
+
+        <th width="150">
+          จัดการ
+        </th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      @for(
+      strategy of strategies;
+      track strategy.strategy_id
+      ){
+
+      <tr>
+
+        <td>
+
+          <span class="strategy-code">
+
+            {{ strategy.strategy_code }}
+
+          </span>
+
+        </td>
+
+        <td>
+
+          <div class="strategy-name">
+
+            {{ strategy.strategy_name }}
+
+          </div>
+
+        </td>
+
+        <td>
+
+          <button class="btn-open" [routerLink]="[
+      '/category-browser',
+      strategy.strategy_id
+  ]" [queryParams]="{
+      planId: planId
+  }">
+
+            เปิด
+
+          </button>
+
+        </td>
+
+      </tr>
+
+      }
+
+    </tbody>
+
+  </table>
+
+</div>

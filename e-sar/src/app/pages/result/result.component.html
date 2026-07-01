@@ -1,0 +1,165 @@
+<div class="page-header">
+
+  <button class="btn-back" (click)="goBack()">
+
+    ← กลับ
+
+  </button>
+
+</div>
+
+<div class="page">
+
+  <div class="header-card">
+
+    <div>
+
+      <h2>📊 ผลการดำเนินงาน KPI</h2>
+
+      <p>
+
+        <strong>{{ kpi?.indicator_code }}</strong>
+
+        -
+
+        {{ kpi?.indicator_name }}
+
+      </p>
+
+    </div>
+
+    <button class="btn-add" [routerLink]="['/result', indicatorId, 'new']" [queryParams]="{
+    categoryId: categoryId,
+    strategyId: strategyId,
+    planId: planId
+  }">
+
+      + เพิ่ม Result
+
+    </button>
+
+  </div>
+
+  <div class="table-card">
+
+    <table>
+
+      <thead>
+
+        <tr>
+
+          <th>ปีการศึกษา</th>
+
+          <th>ไตรมาส</th>
+
+          <th>ผลจริง</th>
+
+          <th>% บรรลุ</th>
+
+          <th>หลักฐาน</th>
+
+          <th>จัดการ</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        @for(result of results; track result.result_id){
+
+        <tr>
+
+          <td>{{ result.year_name }}</td>
+
+          <td>
+
+            <span class="quarter-badge">
+              ไตรมาส {{ result.quarter_name.replace('Q', '') }}
+            </span>
+
+          </td>
+
+          <td>
+
+            <strong>{{ result.actual_value }}</strong>
+
+          </td>
+
+          <td>
+
+            <span class="percent">
+
+              {{ result.achievement_percent }}%
+
+            </span>
+
+          </td>
+
+          <td>
+
+            @if(result.evidence_files){
+
+            📄 {{ result.evidence_files }}
+
+            }
+
+            @else{
+
+            <span class="no-file">
+
+              -
+
+            </span>
+
+            }
+
+          </td>
+
+          <td class="actions">
+
+            <button class="btn-view" [routerLink]="[
+  '/evidence',
+  result.result_id
+]" [queryParams]="{
+  categoryId: categoryId,
+  strategyId: strategyId,
+  planId: planId
+}">
+
+              ดูหลักฐาน
+
+            </button>
+
+            <button class="btn-edit" [routerLink]="[
+    '/result/edit',
+    result.result_id
+  ]" [queryParams]="{
+    categoryId: categoryId,
+    strategyId: strategyId,
+    planId: planId
+  }">
+
+              แก้ไข
+
+            </button>
+
+            <button class="btn-delete" (click)="deleteResult(result.result_id)">
+
+              ลบ
+
+            </button>
+
+          </td>
+
+        </tr>
+
+        }
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

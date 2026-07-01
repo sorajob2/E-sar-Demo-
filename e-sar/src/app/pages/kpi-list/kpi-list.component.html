@@ -1,0 +1,228 @@
+<div class="page-action">
+  <button class="btn-back" (click)="goBack()">
+    ← กลับ
+  </button>
+</div>
+<div class="page-header">
+
+  <div>
+
+    <h2>รายการ KPI</h2>
+
+    <p>
+      จัดการตัวชี้วัด เป้าหมาย และผลการดำเนินงาน
+    </p>
+
+  </div>
+
+  <button class="btn-add" [routerLink]="[
+    '/kpi/new',
+    categoryId
+  ]" [queryParams]="{
+  strategyId: strategyId,
+  planId: nav.planId
+}">
+
+    + เพิ่ม KPI
+
+  </button>
+
+</div>
+
+<div class=" search-box">
+
+  <input type="text" [(ngModel)]="searchText" (input)="filterKpi()" placeholder="ค้นหารหัส KPI หรือชื่อ KPI...">
+
+</div>
+
+<div class="table-card">
+
+  <table class="kpi-table">
+
+    <thead>
+
+      <tr>
+
+        <th>รหัส KPI</th>
+        <th>ชื่อ KPI</th>
+        <th>หมวดหมู่</th>
+        <th>ยุทธศาสตร์</th>
+        <th>เป้าหมาย</th>
+        <th>ผลลัพธ์</th>
+        <th>สถานะ</th>
+        <th>จัดการ</th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      @for (
+      kpi of kpis;
+      track kpi.indicator_id
+      ) {
+
+      <tr>
+
+        <td>
+
+          <span class="kpi-code">
+
+            {{ kpi.indicator_code }}
+
+          </span>
+
+        </td>
+
+        <td>
+
+          <div class="kpi-name">
+
+            {{ kpi.indicator_name }}
+
+          </div>
+
+        </td>
+
+        <td>
+
+          <span class="category-badge">
+
+            {{ kpi.category_name || '-' }}
+
+          </span>
+
+        </td>
+
+        <td>
+
+          {{ kpi.strategy_name || '-' }}
+
+        </td>
+
+        <td>
+
+          <strong>
+
+            {{ kpi.target_value ?? '-' }}
+
+          </strong>
+
+        </td>
+
+        <td>
+
+          <strong>
+
+            {{ kpi.result_value ?? '-' }}
+
+          </strong>
+
+        </td>
+
+        <td>
+
+          @if (
+          kpi.target_value &&
+          kpi.result_value
+          ) {
+
+          @if (isAchieved(kpi)) {
+
+          ✅ สำเร็จ
+
+          } @else {
+
+          ⚠️ ยังไม่ถึงเป้า
+
+          }
+
+          } @else {
+
+          <span class="status none">
+
+            -
+          </span>
+
+          }
+
+        </td>
+
+        <td>
+
+          <div class="action-group">
+
+            <button class="btn-detail" [routerLink]="[
+    '/kpi/detail',
+    kpi.indicator_id
+  ]" [queryParams]="{
+  categoryId: categoryId,
+  strategyId: strategyId,
+  planId: nav.planId
+}">
+
+              รายละเอียด
+
+            </button>
+
+            <button class="btn-result" [routerLink]="[
+    '/result',
+    kpi.indicator_id
+  ]" [queryParams]="{
+    categoryId: categoryId,
+    strategyId: strategyId,
+    planId: nav.planId
+  }">
+
+              Result
+
+            </button>
+
+            <button class="btn-target" [routerLink]="[
+'/target',
+kpi.indicator_id
+]" [queryParams]="{
+  categoryId: categoryId,
+  strategyId: strategyId,
+  planId: nav.planId
+}">
+
+              Target
+
+            </button>
+
+            <button class="btn-edit" [routerLink]="[
+'/kpi/edit',
+kpi.indicator_id
+]" [queryParams]="{
+  categoryId: categoryId,
+  strategyId: strategyId,
+  planId: nav.planId
+}">
+
+              แก้ไข
+
+            </button>
+
+            <button class=" btn-delete" (click)="deleteKpi(
+                kpi.indicator_id
+              )">
+
+              ลบ
+
+            </button>
+
+          </div>
+
+        </td>
+
+      </tr>
+
+      }
+
+    </tbody>
+
+  </table>
+
+</div>

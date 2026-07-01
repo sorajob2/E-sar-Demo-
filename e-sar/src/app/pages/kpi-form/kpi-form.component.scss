@@ -1,0 +1,223 @@
+.page-header{
+
+    margin-bottom:30px;
+
+}
+
+.page-header h2{
+
+    margin:0;
+
+    font-size:36px;
+
+    color:#1e3a8a;
+
+    font-weight:700;
+
+}
+
+.page-header p{
+
+    margin-top:8px;
+
+    color:#64748b;
+
+    font-size:15px;
+
+}
+
+.form-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+
+}
+
+.full{
+
+    grid-column:1 / -1;
+
+}
+
+.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.form-group label{
+
+    margin-bottom:10px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:#334155;
+
+}
+
+input,
+select{
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border:1px solid #cbd5e1;
+
+    border-radius:12px;
+
+    font-size:15px;
+
+    transition:.25s;
+
+    background:#fff;
+
+}
+
+input:focus,
+select:focus{
+
+    outline:none;
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.12);
+
+}
+
+.button-group{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:15px;
+
+    margin-top:35px;
+
+}
+
+.button-group button{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:14px 28px;
+
+    border-radius:12px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.btn-save{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+.btn-save:hover{
+
+    background:#1d4ed8;
+
+}
+
+.btn-cancel{
+
+    background:#e2e8f0;
+
+    color:#334155;
+
+}
+
+.btn-cancel:hover{
+
+    background:#cbd5e1;
+
+}
+
+@media(max-width:900px){
+
+.grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.full{
+
+    grid-column:auto;
+
+}
+
+.button-group{
+
+    flex-direction:column;
+
+}
+
+.button-group button{
+
+    width:100%;
+
+}
+
+}
+
+.page-header{
+
+    margin-bottom:20px;
+
+}
+
+.btn-back{
+
+    padding:12px 24px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#64748b;
+
+    color:#fff;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.btn-back:hover{
+
+    background:#475569;
+
+}

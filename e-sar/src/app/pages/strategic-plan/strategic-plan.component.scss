@@ -1,0 +1,177 @@
+.page-header {
+
+display: flex;
+
+justify-content: space-between;
+
+align-items: center;
+
+margin-bottom: 24px;
+
+}
+
+.page-header h2 {
+
+margin: 0;
+
+font-size: 36px;
+
+color: #1e293b;
+
+}
+
+.page-header p {
+
+margin-top: 8px;
+
+color: #64748b;
+
+}
+
+.btn-add {
+
+background: #2563eb;
+
+color: white;
+
+border: none;
+
+padding: 12px 20px;
+
+border-radius: 10px;
+
+cursor: pointer;
+
+font-weight: 600;
+
+}
+
+.btn-add:hover {
+
+background: #1d4ed8;
+
+}
+
+.plan-table {
+
+width: 100%;
+
+border-collapse: separate;
+
+border-spacing: 0;
+
+background: white;
+
+border-radius: 16px;
+
+overflow: hidden;
+
+box-shadow:
+0 4px 20px rgba(0,0,0,.08);
+
+}
+
+.plan-table thead th {
+
+background: #2563eb;
+
+color: white;
+
+padding: 16px;
+
+text-align: left;
+
+}
+
+.plan-table td {
+
+padding: 14px 16px;
+
+border-bottom:
+1px solid #e2e8f0;
+
+}
+
+.plan-table tbody tr:hover {
+
+background: #f8fafc;
+
+}
+
+.status-active {
+
+background: #dcfce7;
+
+color: #16a34a;
+
+padding: 6px 12px;
+
+border-radius: 20px;
+
+font-size: 12px;
+
+font-weight: 600;
+
+}
+
+.status-inactive {
+
+background: #fee2e2;
+
+color: #dc2626;
+
+padding: 6px 12px;
+
+border-radius: 20px;
+
+font-size: 12px;
+
+font-weight: 600;
+
+}
+
+.btn-edit {
+
+background: #f59e0b;
+
+color: white;
+
+border: none;
+
+padding: 8px 14px;
+
+border-radius: 8px;
+
+cursor: pointer;
+
+margin-right: 8px;
+
+}
+
+.btn-edit:hover {
+
+background: #d97706;
+
+}
+
+.btn-delete {
+
+background: #ef4444;
+
+color: white;
+
+border: none;
+
+padding: 8px 14px;
+
+border-radius: 8px;
+
+cursor: pointer;
+
+}
+
+.btn-delete:hover {
+
+background: #dc2626;
+
+}

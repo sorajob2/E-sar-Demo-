@@ -1,0 +1,54 @@
+<h2>
+  {{ isEdit ? 'แก้ไข Target' : 'เพิ่ม Target' }}
+</h2>
+<form [formGroup]="form">
+
+  <div>
+
+    <label>ปีการศึกษา</label>
+
+    <br>
+
+    <select formControlName="year_id">
+
+      <option value="">
+        -- เลือกปีการศึกษา --
+      </option>
+
+      @for (year of years; track year.year_id) {
+
+        <option [value]="year.year_id">
+          {{ year.year_name }}
+        </option>
+
+      }
+
+    </select>
+
+  </div>
+
+  <br>
+
+  <div>
+
+    <label>ค่าเป้าหมาย</label>
+
+    <br>
+
+    <input
+      type="number"
+      formControlName="target_value">
+
+  </div>
+
+  <br>
+
+  <button
+    type="button"
+    (click)="save()">
+
+    บันทึก
+
+  </button>
+
+</form>

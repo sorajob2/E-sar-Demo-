@@ -1,0 +1,190 @@
+.page-header {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 24px;
+}
+
+.page-header h2 {
+
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+
+  color: #1e293b;
+}
+
+.page-header p {
+
+  margin-top: 8px;
+
+  color: #64748b;
+
+  font-size: 15px;
+}
+
+.btn-add {
+
+  background: #2563eb;
+
+  color: white;
+
+  border: none;
+
+  padding: 12px 20px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: .2s;
+}
+
+.btn-add:hover {
+
+  background: #1d4ed8;
+}
+
+.table-card {
+
+  background: white;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 4px 20px rgba(0,0,0,.08);
+}
+
+.target-table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.target-table thead {
+
+  background: #2563eb;
+}
+
+.target-table th {
+
+  color: white;
+
+  padding: 16px;
+
+  font-size: 15px;
+
+  text-align: left;
+}
+
+.target-table td {
+
+  padding: 16px;
+
+  border-bottom:
+    1px solid #e2e8f0;
+}
+
+.target-table tbody tr:hover {
+
+  background: #f8fafc;
+}
+
+.year-badge {
+
+  display: inline-block;
+
+  padding: 6px 14px;
+
+  border-radius: 20px;
+
+  background: #dbeafe;
+
+  color: #2563eb;
+
+  font-weight: 600;
+
+  font-size: 13px;
+}
+
+.btn-edit {
+
+  background: #f59e0b;
+
+  color: white;
+
+  border: none;
+
+  padding: 8px 14px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  margin-right: 8px;
+
+  transition: .2s;
+}
+
+.btn-edit:hover {
+
+  background: #d97706;
+}
+
+.btn-delete {
+
+  background: #ef4444;
+
+  color: white;
+
+  border: none;
+
+  padding: 8px 14px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+.btn-delete:hover {
+
+  background: #dc2626;
+}
+
+.btn-back{
+
+    padding:12px 24px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#64748b;
+
+    color:#fff;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    margin-bottom:20px;
+
+    transition:.2s;
+
+}
+
+.btn-back:hover{
+
+    background:#475569;
+
+}

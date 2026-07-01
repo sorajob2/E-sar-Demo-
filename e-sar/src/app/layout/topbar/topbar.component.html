@@ -1,0 +1,51 @@
+<div class="topbar">
+
+  <div class="left">
+
+    <button
+      class="menu-btn"
+      (click)="toggle.emit()">
+
+      ☰
+
+    </button>
+
+    <div class="brand">
+
+      <span class="title">
+        TSU Graduate e-SAR
+      </span>
+
+      <span class="subtitle">
+        Educational Self Assessment Report
+      </span>
+
+    </div>
+
+  </div>
+
+  <div class="right">
+
+    <div class="user-box">
+
+      <div class="avatar">
+        {{ auth.getUser()?.full_name?.charAt(0) }}
+      </div>
+
+      <div class="user-info">
+
+        <div class="name">
+          {{ auth.getUser()?.full_name }}
+        </div>
+
+        <div class="role">
+          {{ auth.getUser()?.role }}
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,61 @@
+<div class="page-header">
+
+  <div>
+
+<h2>ตั้งค่าระบบ</h2>
+
+<p>
+  กำหนดค่าพื้นฐานสำหรับการทำงานของระบบ e-SAR
+</p>
+
+  </div>
+
+</div>
+
+<div class="setting-card">
+
+  <div class="form-group">
+
+<label>
+  ปีการศึกษาปัจจุบัน
+</label>
+
+<select
+  [(ngModel)]="currentYearId">
+
+  @for(
+    year of years;
+    track year.year_id
+  ){
+
+    <option
+      [value]="year.year_id">
+
+      {{ year.year_name }}
+
+    </option>
+
+  }
+
+</select>
+
+<small>
+  ระบบจะใช้ปีการศึกษานี้ในการคำนวณ Dashboard และ KPI ทั้งหมด
+</small>
+
+
+  </div>
+
+  <div class="action-bar">
+
+<button
+  class="btn-save"
+  (click)="save()">
+
+  💾 บันทึกการตั้งค่า
+
+</button>
+
+  </div>
+
+</div>

@@ -1,0 +1,120 @@
+<button class="btn-back" (click)="goBack()">
+
+  ← กลับ
+
+</button>
+
+<div class="page-header">
+
+  <div>
+
+    <h2>หลักฐาน (Evidence)</h2>
+
+    <div class="evidence-info">
+
+      KPI :
+
+      <strong>
+        {{ kpi?.indicator_code }}
+      </strong>
+
+      -
+
+      {{ kpi?.indicator_name }}
+
+    </div>
+
+  </div>
+
+  <button class="btn-add" [routerLink]="['/evidence', resultId, 'new']" [queryParams]="{
+    categoryId: categoryId,
+    strategyId: strategyId,
+    planId: planId
+  }">
+
+    + อัปโหลดหลักฐาน
+
+  </button>
+
+</div>
+
+<div class="summary-card">
+
+  <span>จำนวนหลักฐานทั้งหมด</span>
+
+  <strong>
+    {{ evidences.length }}
+  </strong>
+
+</div>
+
+<div class="table-card">
+
+  <table class="evidence-table">
+
+    <thead>
+
+      <tr>
+
+        <th>ชื่อไฟล์</th>
+        <th>ขนาดไฟล์</th>
+        <th>วันที่อัปโหลด</th>
+        <th>จัดการ</th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      @for (
+      evidence of evidences;
+      track evidence.evidence_id
+      ) {
+
+      <tr>
+
+        <td>
+
+          <a class="file-link" [href]="evidence.drive_link" target="_blank">
+
+            {{ evidence.file_name }}
+
+          </a>
+
+        </td>
+
+        <td>
+          {{ formatFileSize(evidence.file_size) }}
+        </td>
+
+        <td>
+
+          {{
+          evidence.uploaded_at
+          | date:'dd/MM/yyyy HH:mm'
+          }}
+
+        </td>
+
+        <td>
+
+          <button class="btn-delete" (click)="deleteEvidence(
+                evidence.evidence_id
+              )">
+
+            ลบ
+
+          </button>
+
+        </td>
+
+      </tr>
+
+      }
+
+    </tbody>
+
+  </table>
+
+</div>

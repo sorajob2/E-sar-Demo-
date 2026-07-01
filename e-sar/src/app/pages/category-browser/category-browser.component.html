@@ -1,0 +1,101 @@
+<button class="btn-back" (click)="goBack()">
+
+  ← กลับ
+
+</button>
+
+<div class="page-header">
+
+  <div>
+
+    <h2>หมวดหมู่ตัวชี้วัด</h2>
+
+    <p>
+      เลือกหมวดหมู่เพื่อดูรายการ KPI
+    </p>
+
+  </div>
+
+</div>
+
+<div class="search-box">
+
+  <input type="text" placeholder="ค้นหาหมวดหมู่...">
+
+</div>
+
+<div class="table-card">
+
+  <table class="category-table">
+
+    <thead>
+
+      <tr>
+
+        <th width="300">
+          หมวดหมู่
+        </th>
+
+        <th>
+          คำอธิบาย
+        </th>
+
+        <th width="180">
+          จัดการ
+        </th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      @for(
+      category of categories;
+      track category.category_id
+      ){
+
+      <tr>
+
+        <td>
+
+          <span class="category-badge">
+
+            {{ category.category_name }}
+
+          </span>
+
+        </td>
+
+        <td>
+
+          <div class="description">
+
+            {{ category.description || '-' }}
+
+          </div>
+
+        </td>
+
+        <td>
+
+          <button [routerLink]="['/kpi/category', category.category_id]" [queryParams]="{
+    strategyId: strategyId,
+    planId: planId
+  }">
+
+            เปิด KPI
+
+          </button>
+
+        </td>
+
+      </tr>
+
+      }
+
+    </tbody>
+
+  </table>
+
+</div>

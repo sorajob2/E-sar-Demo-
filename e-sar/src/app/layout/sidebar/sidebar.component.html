@@ -1,0 +1,164 @@
+<div class="sidebar" [class.collapsed]="collapsed">
+
+
+
+  <ul class="menu">
+
+    <li>
+      <a routerLink="/dashboard">
+
+        <span class="icon">🏠</span>
+
+        @if(!collapsed){
+        <span>หน้าหลัก</span>
+        }
+
+      </a>
+    </li>
+
+    @if(auth.isSuperAdmin()){
+
+    <li>
+      <a routerLink="/users">
+
+        <span class="icon">👤</span>
+
+        @if(!collapsed){
+        <span>ผู้ใช้งาน</span>
+        }
+
+      </a>
+    </li>
+
+    }
+
+    @if(auth.isSuperAdmin()){
+
+    <li>
+
+      <a routerLink="/system-setting">
+
+        <span class="icon">
+          ⚙️
+        </span>
+
+        @if(!collapsed){
+
+        <span>
+          ตั้งค่าปีการศึกษา
+        </span>
+
+        }
+
+      </a>
+
+    </li>
+
+    }
+
+    @if(
+    auth.isSuperAdmin() ||
+    auth.isAdmin()
+    ){
+
+    <li>
+      <a routerLink="/strategic-plan">
+
+        <span class="icon">📋</span>
+
+        @if(!collapsed){
+        <span>แผนกลยุทธ์</span>
+        }
+
+      </a>
+    </li>
+
+    <li>
+      <a routerLink="/strategy">
+
+        <span class="icon">🎯</span>
+
+        @if(!collapsed){
+        <span>ยุทธศาสตร์</span>
+        }
+
+      </a>
+    </li>
+
+    <li>
+      <a routerLink="/category">
+
+        <span class="icon">📁</span>
+
+        @if(!collapsed){
+        <span>หมวดหมู่/ผลลัพธ์</span>
+        }
+
+      </a>
+    </li>
+
+    <li>
+      <a routerLink="/plan-browser">
+
+        <span class="icon">📊</span>
+
+        @if(!collapsed){
+        <span>ตัวชี้วัด</span>
+        }
+
+      </a>
+    </li>
+
+    <li>
+      <a routerLink="/report" routerLinkActive="active">
+
+        @if(!collapsed){
+        <mat-icon>assessment</mat-icon>
+        <span>รายงาน</span>
+        }
+
+      </a>
+    </li>
+
+
+    }
+
+    @if(auth.isStaff()){
+
+    <li>
+      <a routerLink="/my-kpi">
+
+        <span class="icon">📈</span>
+
+        @if(!collapsed){
+        <span>ตัวชี้วัดของฉัน</span>
+        }
+
+      </a>
+    </li>
+
+
+
+    }
+
+  </ul>
+
+  <div class="logout-wrapper">
+
+    <button class="logout-btn" (click)="auth.logout()">
+
+      @if(collapsed){
+
+      🚪
+
+      } @else {
+
+      Logout
+
+      }
+
+    </button>
+
+  </div>
+
+</div>

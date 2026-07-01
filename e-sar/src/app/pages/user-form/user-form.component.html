@@ -1,0 +1,136 @@
+<div class="page-header">
+
+  <div>
+
+    <h2>
+      {{ userId ? 'แก้ไขผู้ใช้งาน' : 'เพิ่มผู้ใช้งาน' }}
+    </h2>
+
+    <p>
+      {{ userId
+        ? 'แก้ไขข้อมูลผู้ใช้งานในระบบ e-SAR'
+        : 'สร้างบัญชีผู้ใช้งานใหม่สำหรับระบบ e-SAR'
+      }}
+    </p>
+
+  </div>
+
+</div>
+
+<div class="form-card">
+
+  <form [formGroup]="form">
+
+    <div class="form-grid">
+
+      <div class="form-group">
+
+        <label>Username</label>
+
+        <input
+          type="text"
+          formControlName="username"
+          placeholder="กรอก Username">
+
+      </div>
+
+      <div class="form-group">
+
+        <label>Password</label>
+
+        <input
+          type="password"
+          formControlName="password"
+          [placeholder]="userId ? 'เว้นว่างหากไม่ต้องการเปลี่ยนรหัสผ่าน' : 'กรอก Password'">
+
+      </div>
+
+      <div class="form-group">
+
+        <label>ชื่อ-สกุล</label>
+
+        <input
+          type="text"
+          formControlName="full_name"
+          placeholder="กรอกชื่อ-สกุล">
+
+      </div>
+
+      <div class="form-group">
+
+        <label>Email</label>
+
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="example@email.com">
+
+      </div>
+
+      <div class="form-group">
+
+        <label>Role</label>
+
+        <select formControlName="role_id">
+
+          <option value="1">
+            SUPER_ADMIN
+          </option>
+
+          <option value="2">
+            ADMIN
+          </option>
+
+          <option value="3">
+            STAFF
+          </option>
+
+        </select>
+
+      </div>
+
+      <div class="form-group">
+
+        <label>สถานะ</label>
+
+        <select formControlName="is_active">
+
+          <option [value]="1">
+            ใช้งาน
+          </option>
+
+          <option [value]="0">
+            ปิดใช้งาน
+          </option>
+
+        </select>
+
+      </div>
+
+    </div>
+
+    <div class="action-bar">
+
+      <button
+        type="button"
+        class="btn-save"
+        (click)="save()">
+
+        {{ userId ? '💾 บันทึกการแก้ไข' : '💾 บันทึกข้อมูล' }}
+
+      </button>
+
+      <button
+        type="button"
+        class="btn-cancel"
+        (click)="goBack()">
+
+        ↩ กลับ
+
+      </button>
+
+    </div>
+
+  </form>
+
+</div>

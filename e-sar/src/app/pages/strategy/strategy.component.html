@@ -1,0 +1,136 @@
+<div class="page-header">
+
+  <div>
+
+<h2>ยุทธศาสตร์</h2>
+
+<p>
+  จัดการยุทธศาสตร์ภายใต้แผนกลยุทธ์
+</p>
+
+  </div>
+
+<button
+ class="btn-add"
+ routerLink="/strategy/new">
+
++ เพิ่มยุทธศาสตร์
+
+  </button>
+
+</div>
+
+<div class="table-container">
+
+  <div class="filter-bar">
+
+  <label>
+    แผนกลยุทธ์
+  </label>
+
+  <select
+    [(ngModel)]="selectedPlanId"
+    (change)="loadStrategies()">
+
+    <option value="">
+      ทุกแผนกลยุทธ์
+    </option>
+
+    @for (
+      plan of plans;
+      track plan.plan_id
+    ) {
+
+      <option
+        [value]="plan.plan_id">
+
+        {{ plan.plan_name }}
+
+      </option>
+
+    }
+
+  </select>
+
+</div>
+
+  <table class="strategy-table">
+
+<thead>
+
+  <tr>
+
+    <th>รหัสยุทธศาสตร์</th>
+    <th>ชื่อยุทธศาสตร์</th>
+    <th>แผนกลยุทธ์</th>
+    <th width="180">จัดการ</th>
+
+  </tr>
+
+</thead>
+
+<tbody>
+
+  @for(
+    strategy of strategies;
+    track strategy.strategy_id
+  ){
+
+    <tr>
+
+      <td>
+        {{ strategy.strategy_code }}
+      </td>
+
+      <td>
+        {{ strategy.strategy_name }}
+      </td>
+
+      <td>
+
+        <span class="plan-badge">
+
+          {{ strategy.plan_name }}
+
+        </span>
+
+      </td>
+
+      <td>
+
+        <div class="action-buttons">
+
+          <button
+            class="btn-edit"
+            [routerLink]="[
+              '/strategy/edit',
+              strategy.strategy_id
+            ]">
+
+            แก้ไข
+
+          </button>
+
+          <button
+            class="btn-delete"
+            (click)="deleteStrategy(
+              strategy.strategy_id
+            )">
+
+            ลบ
+
+          </button>
+
+        </div>
+
+      </td>
+
+    </tr>
+
+  }
+
+</tbody>
+
+  </table>
+
+</div>

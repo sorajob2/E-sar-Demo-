@@ -1,0 +1,118 @@
+<div class="page-header">
+
+  <div>
+
+<h2>แผนกลยุทธ์</h2>
+
+<p>
+  จัดการแผนกลยุทธ์
+</p>
+
+  </div>
+
+<button
+ class="btn-add"
+ routerLink="/strategic-plan/new">
+
++ เพิ่มแผนกลยุทธ์
+
+  </button>
+
+</div>
+
+<div class="table-container">
+
+  <table class="plan-table">
+
+<thead>
+
+  <tr>
+
+    <th>รหัสแผน</th>
+    <th>ชื่อแผน</th>
+    <th>ปีเริ่ม</th>
+    <th>ปีสิ้นสุด</th>
+    <th>สถานะ</th>
+    <th>จัดการ</th>
+
+  </tr>
+
+</thead>
+
+<tbody>
+
+  @for(
+    plan of plans;
+    track plan.plan_id
+  ){
+
+    <tr>
+
+      <td>
+        {{ plan.plan_code }}
+      </td>
+
+      <td>
+        {{ plan.plan_name }}
+      </td>
+
+      <td>
+        {{ plan.start_year }}
+      </td>
+
+      <td>
+        {{ plan.end_year }}
+      </td>
+
+      <td>
+
+        @if(plan.is_active == 1){
+
+          <span class="status-active">
+            ใช้งาน
+          </span>
+
+        } @else {
+
+          <span class="status-inactive">
+            ปิดใช้งาน
+          </span>
+
+        }
+
+      </td>
+
+      <td>
+
+        <button
+          class="btn-edit"
+          [routerLink]="[
+            '/strategic-plan/edit',
+            plan.plan_id
+          ]">
+
+          แก้ไข
+
+        </button>
+
+        <button
+          class="btn-delete"
+          (click)="deletePlan(
+            plan.plan_id
+          )">
+
+          ลบ
+
+        </button>
+
+      </td>
+
+    </tr>
+
+  }
+
+</tbody>
+
+  </table>
+
+</div>

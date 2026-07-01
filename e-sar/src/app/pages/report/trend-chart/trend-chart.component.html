@@ -1,0 +1,106 @@
+<div id="trendChart">
+    <div class="chart-card">
+
+        <h3>แนวโน้มตัวชี้วัดย้อนหลัง</h3>
+
+        <div class="toolbar">
+
+            <div class="form-group">
+
+                <label>ค้นหาตัวชี้วัด</label>
+
+                <input class="search-input" type="text" [(ngModel)]="searchIndicator"
+                    placeholder="ค้นหาด้วยรหัสหรือชื่อตัวชี้วัด">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>ตัวชี้วัด</label>
+
+                <select [(ngModel)]="selectedIndicator">
+
+                    @for(item of filteredIndicators; track item.indicator_id){
+
+                    <option [ngValue]="item.indicator_id">
+
+                        {{item.indicator_code}}
+                        -
+                        {{item.indicator_name}}
+
+                    </option>
+
+                    }
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>จำนวนปี</label>
+
+                <select [(ngModel)]="selectedYears">
+
+                    <option [ngValue]="2">2 ปี</option>
+                    <option [ngValue]="3">3 ปี</option>
+                    <option [ngValue]="4">4 ปี</option>
+                    <option [ngValue]="5">5 ปี</option>
+                    <option [ngValue]="99">ทั้งหมด</option>
+
+                </select>
+
+            </div>
+
+            <div class="button-group">
+
+                <button class="btn-primary" (click)="search()">
+
+                    แสดงกราฟ
+
+                </button>
+
+                <button class="btn-success" (click)="exportChart()">
+
+                    🖼 Export รูป
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="chart-wrapper">
+
+            <div class="chart-container">
+
+                <canvas #trendCanvas></canvas>
+
+            </div>
+
+            @if(trendDirection){
+
+            <div class="trend-indicator" [style.color]="trendColor">
+
+                <div class="arrow">
+
+                    {{ trendDirection === 'up' ? '↑' : '↓' }}
+
+                </div>
+
+                <div class="text">
+
+                    {{ trendDirection === 'up'
+                    ? 'GOOD'
+                    : 'GOOD' }}
+
+                </div>
+
+            </div>
+
+            }
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,119 @@
+<div class="form-container">
+
+  <div class="form-header">
+
+<h2>
+
+  @if(isEdit){
+
+    แก้ไขหมวดหมู่
+
+  } @else {
+
+    เพิ่มหมวดหมู่
+
+  }
+
+</h2>
+
+<p>
+
+  จัดการหมวดหมู่ตัวชี้วัดภายใต้กลยุทธ์
+
+</p>
+
+  </div>
+
+  <form
+    [formGroup]="form"
+    class="category-form">
+
+<div class="form-group">
+
+  <label>
+
+    กลยุทธ์
+
+  </label>
+
+  <select
+    formControlName="strategy_id">
+
+    <option value="">
+      -- เลือกกลยุทธ์ --
+    </option>
+
+    @for(
+      s of strategies;
+      track s.strategy_id
+    ){
+
+      <option
+        [value]="s.strategy_id">
+
+        {{ s.strategy_name }}
+
+      </option>
+
+    }
+
+  </select>
+
+</div>
+
+<div class="form-group">
+
+  <label>
+
+    ชื่อหมวดหมู่
+
+  </label>
+
+  <input
+    type="text"
+    formControlName="category_name"
+    placeholder="ระบุชื่อหมวดหมู่">
+
+</div>
+
+<div class="form-group">
+
+  <label>
+
+    รายละเอียด
+
+  </label>
+
+  <textarea
+    rows="5"
+    formControlName="description"
+    placeholder="รายละเอียดเพิ่มเติม">
+  </textarea>
+
+</div>
+
+<div class="form-actions">
+
+  <button
+    type="button"
+    class="btn-cancel"
+    routerLink="/category">
+
+    ยกเลิก
+
+  </button>
+
+  <button
+    type="button"
+    class="btn-save"
+    (click)="save()">
+
+    💾 บันทึกข้อมูล
+
+  </button>
+
+</div>
+
+  </form>
+
+</div>

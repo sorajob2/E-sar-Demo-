@@ -1,0 +1,222 @@
+.page-header {
+
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+margin-bottom: 24px;
+}
+
+.page-header h2 {
+
+margin: 0;
+
+font-size: 40px;
+
+color: #1e293b;
+}
+
+.page-header p {
+
+margin-top: 8px;
+
+color: #64748b;
+
+font-size: 16px;
+}
+
+.btn-add {
+
+background: #2563eb;
+
+color: white;
+
+border: none;
+
+padding: 12px 20px;
+
+border-radius: 10px;
+
+cursor: pointer;
+
+font-size: 14px;
+
+font-weight: 600;
+
+transition: .2s;
+}
+
+.btn-add:hover {
+
+background: #1d4ed8;
+}
+
+.table-container {
+
+background: white;
+
+border-radius: 18px;
+
+overflow: hidden;
+
+box-shadow:
+0 4px 20px rgba(0,0,0,.08);
+}
+
+.strategy-table {
+
+width: 100%;
+
+border-collapse: collapse;
+}
+
+.strategy-table thead {
+
+background: #2563eb;
+}
+
+.strategy-table th {
+
+color: white;
+
+padding: 16px;
+
+text-align: left;
+
+font-size: 15px;
+
+font-weight: 600;
+}
+
+.strategy-table td {
+
+padding: 16px;
+
+border-bottom:
+1px solid #e2e8f0;
+}
+
+.strategy-table tbody tr:hover {
+
+background: #f8fafc;
+}
+
+.plan-badge {
+
+display: inline-block;
+
+background: #dbeafe;
+
+color: #2563eb;
+
+padding: 6px 12px;
+
+border-radius: 20px;
+
+font-size: 12px;
+
+font-weight: 600;
+}
+
+.action-buttons {
+
+display: flex;
+
+gap: 8px;
+}
+
+.btn-edit {
+
+background: #f59e0b;
+
+color: white;
+
+border: none;
+
+padding: 8px 14px;
+
+border-radius: 8px;
+
+cursor: pointer;
+
+font-weight: 600;
+}
+
+.btn-edit:hover {
+
+background: #d97706;
+}
+
+.btn-delete {
+
+background: #ef4444;
+
+color: white;
+
+border: none;
+
+padding: 8px 14px;
+
+border-radius: 8px;
+
+cursor: pointer;
+
+font-weight: 600;
+}
+
+.btn-delete:hover {
+
+background: #dc2626;
+}
+
+
+.filter-bar {
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  background: white;
+
+  padding: 16px 20px;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 4px 15px rgba(0,0,0,.05);
+
+  margin-bottom: 24px;
+
+  label {
+
+    font-weight: 600;
+    color: #1e293b;
+  }
+
+  select {
+
+    min-width: 420px;
+
+    padding: 10px 14px;
+
+    border: 1px solid #dbe2ef;
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    transition: .2s;
+
+    &:focus {
+
+      outline: none;
+
+      border-color: #2563eb;
+
+      box-shadow:
+        0 0 0 4px rgba(37,99,235,.15);
+
+    }
+
+  }
+
+}

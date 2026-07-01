@@ -1,0 +1,25 @@
+@if(router.url !== '/login'){
+
+<app-topbar (toggle)="toggleSidebar()">
+</app-topbar>
+
+<div class="app-layout">
+
+  <app-sidebar [collapsed]="collapsed">
+  </app-sidebar>
+
+  <main class="content-area" [class.collapsed]="collapsed">
+
+    <router-outlet></router-outlet>
+
+  </main>
+
+</div>
+
+}
+
+@if(router.url === '/login'){
+
+<router-outlet></router-outlet>
+
+}

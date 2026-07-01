@@ -1,0 +1,387 @@
+*{
+    box-sizing:border-box;
+}
+
+.login-container{
+
+    display:flex;
+    min-height:100vh;
+
+}
+
+/* ==========================
+   LEFT
+========================== */
+
+.login-left{
+
+    flex:1;
+
+    background:linear-gradient(135deg,#0D47A1,#2962FF);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    padding:70px;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+/* วงกลมตกแต่ง */
+
+.login-left::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+
+    height:700px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.05);
+
+    top:-250px;
+
+    right:-250px;
+
+}
+
+.login-left::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+
+    height:500px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.04);
+
+    left:-180px;
+
+    bottom:-180px;
+
+}
+
+/* ==========================
+   BRAND
+========================== */
+
+.brand{
+
+    z-index:2;
+
+    text-align:center;
+
+}
+
+.logo{
+
+    width:240px;
+
+    margin-bottom:30px;
+
+    filter:drop-shadow(0 15px 35px rgba(0,0,0,.25));
+
+    transition:.3s;
+
+    animation:float 3s ease-in-out infinite;
+
+}
+
+.logo:hover{
+
+    transform:scale(1.05);
+
+}
+
+.brand h1{
+
+    font-size:62px;
+
+    font-weight:700;
+
+    margin:0;
+
+}
+
+.brand p{
+
+    font-size:24px;
+
+    margin-top:18px;
+
+    opacity:.9;
+
+}
+
+.divider{
+
+    width:150px;
+
+    height:4px;
+
+    border-radius:30px;
+
+    background:white;
+
+    opacity:.4;
+
+    margin:40px auto;
+
+}
+
+/* ==========================
+   WELCOME
+========================== */
+
+.welcome{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+    margin-top:20px;
+
+    z-index:2;
+
+}
+
+.welcome-icon{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.12);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:40px;
+
+    backdrop-filter:blur(10px);
+
+}
+
+.welcome-content h2{
+
+    font-size:40px;
+
+    margin-bottom:15px;
+
+}
+
+.welcome-content p{
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    opacity:.9;
+
+}
+
+/* ==========================
+   RIGHT
+========================== */
+
+.login-right{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#F4F8FC;
+
+}
+
+/* ==========================
+   CARD
+========================== */
+
+.login-card{
+
+    width:430px;
+
+    padding:45px;
+
+    background:white;
+
+    border-radius:24px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.08);
+
+}
+
+.login-card h2{
+
+    font-size:42px;
+
+    color:#1e293b;
+
+    margin-bottom:10px;
+
+}
+
+.subtitle{
+
+    color:#64748b;
+
+    margin-bottom:35px;
+
+}
+
+/* ==========================
+   FORM
+========================== */
+
+.form-group{
+
+    margin-bottom:22px;
+
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    font-weight:600;
+
+    color:#334155;
+
+}
+
+.form-group input{
+
+    width:100%;
+
+    padding:15px 18px;
+
+    border:1px solid #CBD5E1;
+
+    border-radius:12px;
+
+    font-size:15px;
+
+    transition:.25s;
+
+}
+
+.form-group input:focus{
+
+    outline:none;
+
+    border-color:#2563EB;
+
+    box-shadow:0 0 0 5px rgba(37,99,235,.15);
+
+}
+
+/* ==========================
+   BUTTON
+========================== */
+
+.btn-login{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#2563EB;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.btn-login:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 25px rgba(37,99,235,.3);
+
+}
+
+/* ==========================
+   LOGO ANIMATION
+========================== */
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:992px){
+
+    .login-left{
+
+        display:none;
+
+    }
+
+    .login-right{
+
+        flex:1;
+
+    }
+
+}

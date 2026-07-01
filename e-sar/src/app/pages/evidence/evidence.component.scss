@@ -1,0 +1,226 @@
+.page-header {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.page-header h2 {
+
+  margin: 0;
+  font-size: 36px;
+  color: #1e293b;
+}
+
+.evidence-info {
+
+  margin-top: 10px;
+
+  font-size: 18px;
+
+  color: #475569;
+}
+
+.summary-card {
+
+  background: white;
+
+  border-radius: 16px;
+
+  padding: 20px;
+
+  margin-bottom: 20px;
+
+  box-shadow:
+    0 4px 12px rgba(0,0,0,.08);
+
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.summary-card span {
+
+  color: #64748b;
+  font-size: 14px;
+}
+
+.summary-card strong {
+
+  font-size: 32px;
+  color: #2563eb;
+}
+
+.table-card {
+
+  background: white;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 4px 12px rgba(0,0,0,.08);
+}
+
+.evidence-table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+}
+
+.evidence-table thead {
+
+  background: #2563eb;
+
+}
+
+.evidence-table thead tr {
+
+  background: #2563eb !important;
+
+}
+
+.evidence-table thead th {
+
+  color: #ffffff;
+
+  padding: 16px;
+
+  text-align: left;
+
+}
+
+.evidence-table tbody td {
+
+  padding: 14px;
+
+  border-bottom: 1px solid #e2e8f0;
+
+}
+
+.evidence-table tbody tr:hover {
+
+  background: #f8fafc;
+
+}
+
+.evidence-table thead tr:hover {
+
+  background: #2563eb !important;
+
+}
+
+.evidence-table thead th:hover {
+
+  background: #2563eb !important;
+
+  color: #ffffff !important;
+
+}
+
+.file-link {
+
+  color: #2563eb;
+
+  text-decoration: none;
+
+  font-weight: 600;
+}
+
+.file-link:hover {
+
+  text-decoration: underline;
+}
+
+.btn-upload {
+
+  background: #2563eb;
+  color: white;
+
+  border: none;
+
+  padding: 12px 20px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+}
+
+.btn-upload:hover {
+
+  background: #1d4ed8;
+}
+
+.btn-delete {
+
+  background: #ef4444;
+
+  color: white;
+
+  border: none;
+
+  padding: 8px 14px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+.btn-delete:hover {
+
+  background: #dc2626;
+}
+
+.btn-back {
+
+  background: #64748b;
+
+  color: white;
+
+  border: none;
+
+  padding: 12px 18px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.btn-back:hover {
+
+  background: #475569;
+}
+
+.mt-20 {
+
+  margin-top: 20px;
+}
+
+.btn-add {
+
+  background: #2563eb;
+  color: white;
+
+  border: none;
+
+  padding: 12px 20px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+
+}
+
+.btn-add:hover {
+
+  background: #1d4ed8;
+
+}

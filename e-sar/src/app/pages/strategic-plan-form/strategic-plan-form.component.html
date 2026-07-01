@@ -1,0 +1,113 @@
+<div class="form-container">
+
+  <div class="form-header">
+
+<h2>
+
+  @if(isEdit){
+
+    แก้ไขแผนยุทธศาสตร์
+
+  } @else {
+
+    เพิ่มแผนยุทธศาสตร์
+
+  }
+
+</h2>
+
+<p>
+
+  จัดการข้อมูลแผนยุทธศาสตร์ของหน่วยงาน
+
+</p>
+
+  </div>
+
+  <form
+    [formGroup]="form"
+    (ngSubmit)="save()"
+    class="plan-form">
+
+<div class="form-group">
+
+  <label>รหัสแผน</label>
+
+  <input
+    type="text"
+    formControlName="plan_code"
+    placeholder="เช่น ST01">
+
+</div>
+
+<div class="form-group">
+
+  <label>ชื่อแผนยุทธศาสตร์</label>
+
+  <input
+    type="text"
+    formControlName="plan_name"
+    placeholder="ระบุชื่อแผนยุทธศาสตร์">
+
+</div>
+
+<div class="form-row">
+
+  <div class="form-group">
+
+    <label>ปีเริ่มต้น</label>
+
+    <input
+      type="number"
+      formControlName="start_year">
+
+  </div>
+
+  <div class="form-group">
+
+    <label>ปีสิ้นสุด</label>
+
+    <input
+      type="number"
+      formControlName="end_year">
+
+  </div>
+
+</div>
+
+<div class="form-group">
+
+  <label>รายละเอียด</label>
+
+  <textarea
+    rows="5"
+    formControlName="description"
+    placeholder="รายละเอียดเพิ่มเติมของแผนยุทธศาสตร์">
+  </textarea>
+
+</div>
+
+<div class="form-actions">
+
+  <button
+    type="button"
+    class="btn-cancel"
+    routerLink="/strategic-plan">
+
+    ยกเลิก
+
+  </button>
+
+  <button
+    type="submit"
+    class="btn-save">
+
+    💾 บันทึกข้อมูล
+
+  </button>
+
+</div>
+
+  </form>
+
+</div>

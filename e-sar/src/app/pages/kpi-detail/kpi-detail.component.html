@@ -1,0 +1,219 @@
+<button
+    class="btn-back"
+    (click)="goBack()">
+
+    ← กลับ
+
+</button>
+
+<div class="detail-page">
+
+  <div class="page-header">
+
+    <div>
+
+      <h2>รายละเอียด KPI</h2>
+
+      <p>ข้อมูลตัวชี้วัดและผลการดำเนินงาน</p>
+
+    </div>
+
+    
+
+  </div>
+
+  @if(kpi){
+
+  <div class="info-card">
+
+    <div class="info-item">
+
+      <label>รหัส KPI</label>
+
+      <span>{{kpi.indicator_code}}</span>
+
+    </div>
+
+    <div class="info-item">
+
+      <label>ชื่อ KPI</label>
+
+      <span>{{kpi.indicator_name}}</span>
+
+    </div>
+
+    <div class="info-item">
+
+      <label>หมวดหมู่</label>
+
+      <span>{{kpi.category_name}}</span>
+
+    </div>
+
+    <div class="info-item">
+
+      <label>ผู้รับผิดชอบ</label>
+
+      <span>{{kpi.full_name}}</span>
+
+    </div>
+
+  </div>
+
+  }
+
+  <div class="section">
+
+    <h3>🎯 ค่าเป้าหมาย (Target)</h3>
+
+    <table class="target-table">
+
+      <thead>
+
+        <tr>
+
+          <th>ปีการศึกษา</th>
+
+          <th>ค่าเป้าหมาย</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        @for(target of targets; track target.target_id){
+
+        <tr>
+
+          <td>{{target.year_name}}</td>
+
+          <td>{{target.target_value}}</td>
+
+        </tr>
+
+        }
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <div class="section">
+
+    <h3>📊 ผลการดำเนินงานรายปี</h3>
+
+    <div class="timeline-grid">
+
+      @for(item of timeline; track item.year_id){
+
+      <div class="timeline-card">
+
+        <div class="card-header">
+
+          <h3>
+
+            ปี {{ item.year_name }}
+
+          </h3>
+
+          <span class="quarter-badge">
+
+            {{ getQuarterName(item.quarter_name) }}
+
+          </span>
+
+        </div>
+
+        <div class="row">
+
+          <span>เป้าหมาย</span>
+
+          <strong>{{item.target_value}}</strong>
+
+        </div>
+
+        <div class="row">
+
+          <span>ผลลัพธ์</span>
+
+          <strong>{{item.actual_value || '-'}}</strong>
+
+        </div>
+
+        <div class="row">
+
+          <span>หลักฐาน</span>
+
+          <strong>{{item.evidence_count}} ไฟล์</strong>
+
+        </div>
+
+        <div class="status">
+
+          @if(getStatus(item)=='NO_RESULT'){
+
+          <span class="badge warning">
+
+            ⚠️ ยังไม่บันทึกผล
+
+          </span>
+
+          }
+
+          @else if(getStatus(item)=='NO_EVIDENCE'){
+
+          <span class="badge info">
+
+            📎 รอแนบหลักฐาน
+
+          </span>
+
+          }
+
+          @else{
+
+          <span class="badge success">
+
+            ✅ เสร็จสมบูรณ์
+
+          </span>
+
+          }
+
+        </div>
+
+        <div class="action">
+
+          @if(getStatus(item)=='NO_RESULT'){
+
+          <button class="btn primary" [routerLink]="['/result',kpi.indicator_id,'new']">
+
+            บันทึกผล
+
+          </button>
+
+          }
+
+          @else{
+
+          <button class="btn warning" [routerLink]="['/result/edit',item.result_id]">
+
+            {{getStatus(item)=='NO_EVIDENCE' ? 'แนบหลักฐาน' : 'แก้ไข'}}
+
+          </button>
+
+          }
+
+        </div>
+
+      </div>
+
+      }
+
+    </div>
+
+  </div>
+
+</div>

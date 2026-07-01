@@ -1,0 +1,127 @@
+<div class="page-header">
+
+  <button class="btn-back" (click)="goBack()">
+
+    ← กลับ
+
+  </button>
+
+</div>
+
+<div class="page-header">
+
+  <div>
+
+    <h2>เป้าหมาย KPI</h2>
+
+    <p>
+      KPI :
+      <strong>
+        {{ kpi?.indicator_code }}
+      </strong>
+      -
+      {{ kpi?.indicator_name }}
+    </p>
+
+  </div>
+
+  <button class="btn-add" [routerLink]="[
+    '/target',
+    indicatorId,
+    'new'
+  ]" [queryParams]="{
+    categoryId: categoryId,
+    strategyId: strategyId,
+    planId: this.planId
+  }">
+
+    + เพิ่มเป้าหมาย
+
+  </button>
+
+</div>
+
+<div class="table-card">
+
+  <table class="target-table">
+
+    <thead>
+
+      <tr>
+
+        <th>#</th>
+        <th>ปีงบประมาณ</th>
+        <th>เป้าหมาย</th>
+        <th>จัดการ</th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      @for (
+      target of targets;
+      track target.target_id
+      ) {
+
+      <tr>
+
+        <td>
+          {{ $index + 1 }}
+        </td>
+
+        <td>
+
+          <span class="year-badge">
+
+            {{ target.year_name }}
+
+          </span>
+
+        </td>
+
+        <td>
+
+          <strong>
+
+            {{ target.target_value | number:'1.0-2' }}
+
+          </strong>
+
+        </td>
+
+        <td>
+
+          <button class="btn-edit" [routerLink]="[
+    '/target/edit',
+    target.target_id
+  ]" [queryParams]="{
+    categoryId: categoryId,
+    strategyId: strategyId,
+    planId: planId
+  }">
+
+            แก้ไข
+
+          </button>
+
+          <button class="btn-delete" (click)="deleteTarget(
+                target.target_id
+              )">
+
+            ลบ
+
+          </button>
+
+        </td>
+
+      </tr>
+
+      }
+
+    </tbody>
+
+  </table>
+
+</div>

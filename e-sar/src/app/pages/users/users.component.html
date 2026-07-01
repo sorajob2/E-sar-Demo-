@@ -1,0 +1,116 @@
+<div class="page-header">
+
+  <div>
+
+<h2>จัดการผู้ใช้งาน</h2>
+
+<p>
+  จัดการบัญชีผู้ใช้งานในระบบ e-SAR
+</p>
+
+  </div>
+
+<button
+ class="btn-add"
+ routerLink="/users/new">
+
++ เพิ่มผู้ใช้
+
+  </button>
+
+</div>
+
+<div class="table-container">
+
+  <table class="user-table">
+
+<thead>
+
+  <tr>
+
+    <th>Username</th>
+    <th>ชื่อ-สกุล</th>
+    <th>Email</th>
+    <th>Role</th>
+    <th>สถานะ</th>
+    <th>จัดการ</th>
+
+  </tr>
+
+</thead>
+
+<tbody>
+
+  @for (
+    user of users;
+    track user.user_id
+  ) {
+
+    <tr>
+
+      <td>
+        {{ user.username }}
+      </td>
+
+      <td>
+        {{ user.full_name }}
+      </td>
+
+      <td>
+        {{ user.email }}
+      </td>
+
+      <td>
+
+        <span
+          class="role-badge"
+          [ngClass]="user.role_name">
+
+          {{ user.role_name }}
+
+        </span>
+
+      </td>
+
+      <td>
+
+        @if (user.is_active == 1) {
+
+          <span class="status-active">
+            ใช้งาน
+          </span>
+
+        } @else {
+
+          <span class="status-inactive">
+            ปิดใช้งาน
+          </span>
+
+        }
+
+      </td>
+
+      <td>
+
+        <button
+          class="btn-edit"
+          [routerLink]="[
+            '/users/edit',
+            user.user_id
+          ]">
+
+          แก้ไข
+
+        </button>
+
+      </td>
+
+    </tr>
+
+  }
+
+</tbody>
+
+  </table>
+
+</div>

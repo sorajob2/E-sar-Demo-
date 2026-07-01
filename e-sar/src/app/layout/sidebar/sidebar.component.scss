@@ -1,0 +1,225 @@
+.sidebar {
+
+  position: fixed;
+
+  top: 64px;
+
+  left: 0;
+
+  bottom: 0;
+
+  width: 260px;
+
+  background: #ffffff;
+
+  border-right: 1px solid #e5e7eb;
+
+  overflow-y: auto;
+
+  transition: all .3s ease;
+
+  z-index: 900;
+
+  display: flex;
+
+  flex-direction: column;
+
+}
+
+.sidebar.collapsed {
+
+  width: 80px;
+
+}
+
+/* =========================
+   Menu
+========================= */
+
+.menu {
+
+  list-style: none;
+
+  margin: 0;
+
+  padding: 16px 12px;
+
+  flex: 1;
+
+}
+
+.menu li {
+
+  margin-bottom: 6px;
+
+}
+
+.menu a {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  text-decoration: none;
+
+  color: #374151;
+
+  padding: 12px 14px;
+
+  border-radius: 12px;
+
+  transition: all .2s ease;
+
+  font-size: 15px;
+
+  font-weight: 500;
+
+}
+
+/* Hover */
+
+.menu a:hover {
+
+  background: #f1f5f9;
+
+  color: #0072CE;
+
+  transform: translateX(4px);
+
+}
+
+/* Active */
+
+.menu a.active {
+
+  background: #e8f1ff;
+
+  color: #0072CE;
+
+  font-weight: 700;
+
+}
+
+/* Icon */
+
+.icon {
+
+  min-width: 24px;
+
+  text-align: center;
+
+  font-size: 18px;
+
+}
+
+/* =========================
+   Collapse Mode
+========================= */
+
+.sidebar.collapsed .menu a {
+
+  justify-content: center;
+  pointer-events: none;
+  padding: 14px 0;
+
+}
+
+.sidebar.collapsed .menu a span:last-child {
+
+  display: none;
+
+}
+
+.sidebar.collapsed .icon {
+
+  margin: 0;
+
+  font-size: 22px;
+
+}
+
+/* =========================
+   Logout
+========================= */
+
+.logout-wrapper {
+
+  padding: 16px;
+
+  margin-top: auto;
+
+}
+
+.logout-btn {
+
+  width: 100%;
+
+  border: none;
+
+  background: #dc3545;
+
+  color: white;
+
+  padding: 12px;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  transition: .2s;
+
+}
+
+.logout-btn:hover {
+
+  background: #bb2d3b;
+
+}
+
+.sidebar.collapsed .logout-btn {
+
+  padding: 12px 0;
+
+}
+
+/* =========================
+   Scrollbar
+========================= */
+
+.sidebar::-webkit-scrollbar {
+
+  width: 6px;
+
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+
+  background: #d1d5db;
+
+  border-radius: 10px;
+
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+
+  background: #9ca3af;
+
+}
+
+.icon {
+  min-width: 24px;
+  text-align: center;
+  font-size: 22px;
+}
+
+mat-icon.icon{
+  width:24px;
+  height:24px;
+  font-size:24px;
+}

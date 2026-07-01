@@ -1,0 +1,118 @@
+<div class="page-header">
+
+  <button
+        class="btn-back"
+        (click)="goBack()">
+
+        ← กลับ
+
+    </button>
+
+  <div>
+    <h2>✏️ แก้ไขตัวชี้วัด KPI</h2>
+    <p>จัดการข้อมูลตัวชี้วัดของระบบ e-SAR</p>
+  </div>
+
+</div>
+
+<div class="form-card">
+
+<form [formGroup]="form">
+
+  <div class="grid">
+
+    <!-- ผู้รับผิดชอบ -->
+
+    <div class="form-group">
+
+      <label>ผู้รับผิดชอบ KPI</label>
+
+      <select formControlName="owner_user_id">
+
+        <option [ngValue]="null">
+          -- เลือกผู้รับผิดชอบ --
+        </option>
+
+        @for (staff of staffs; track staff.user_id){
+
+          <option [value]="staff.user_id">
+            {{ staff.full_name }}
+          </option>
+
+        }
+
+      </select>
+
+    </div>
+
+    <!-- วิธีประเมิน -->
+
+    <div class="form-group">
+
+      <label>วิธีประเมินผล</label>
+
+      <select formControlName="target_direction">
+
+        <option value="HIGHER_BETTER">
+          ยิ่งมากยิ่งดี
+        </option>
+
+        <option value="LOWER_BETTER">
+          ยิ่งน้อยยิ่งดี
+        </option>
+
+      </select>
+
+    </div>
+
+    <!-- รหัส KPI -->
+
+    <div class="form-group full">
+
+      <label>รหัส KPI</label>
+
+      <input
+        type="text"
+        formControlName="code">
+
+    </div>
+
+    <!-- ชื่อ KPI -->
+
+    <div class="form-group full">
+
+      <label>ชื่อ KPI</label>
+
+      <input
+        type="text"
+        formControlName="name">
+
+    </div>
+
+  </div>
+
+  <div class="button-group">
+
+    <button
+      class="btn-cancel"
+      type="button"
+      onclick="history.back()">
+
+      ยกเลิก
+
+    </button>
+
+    <button
+      class="btn-save"
+      type="button"
+      (click)="save()">
+
+      💾 บันทึกข้อมูล
+
+    </button>
+
+  </div>
+
+</form>
+
+</div>

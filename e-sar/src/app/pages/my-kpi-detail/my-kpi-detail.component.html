@@ -1,0 +1,113 @@
+<h2>ติดตาม KPI รายไตรมาส</h2>
+
+@for(
+  year of groupedYears;
+  track year.year_name
+){
+
+<div class="year-card">
+
+  <h3>
+    ปี {{ year.year_name }}
+  </h3>
+
+  <p>
+    🎯 เป้าหมาย :
+    {{ year.target_value }}
+  </p>
+
+  <div class="quarter-list">
+
+    @for(
+      q of year.quarters;
+      track q.quarter_id
+    ){
+
+    <div class="quarter-card">
+
+      <div>
+
+        <b>{{ q.quarter_name }}</b>
+
+      </div>
+
+      @if(q.result_id){
+
+        <div class="success">
+
+          ✔ {{ q.actual_value }}
+
+        </div>
+
+      } @else {
+
+        <div class="warning">
+
+          ยังไม่ได้บันทึกผล
+
+        </div>
+
+      }
+
+      <div class="actions">
+
+        @if(!q.result_id){
+
+        <button
+          [routerLink]="[
+            '/result',
+            indicatorId,
+            'new'
+          ]"
+          [queryParams]="{
+            year_id:q.year_id,
+            quarter_id:q.quarter_id
+          }">
+
+          บันทึกผล
+
+        </button>
+
+        }
+
+        @if(q.result_id){
+
+        <button
+          [routerLink]="[
+            '/result/edit',
+            q.result_id
+          ]">
+
+          แก้ไข
+
+        </button>
+
+        }
+
+      </div>
+
+      <div>
+
+        @if(q.evidence_count > 0){
+
+          📎 มีหลักฐานแล้ว
+
+        } @else {
+
+          ⚠️ ยังไม่มีหลักฐาน
+
+        }
+
+      </div>
+
+    </div>
+
+    }
+
+  </div>
+
+</div>
+
+<br>
+
+}

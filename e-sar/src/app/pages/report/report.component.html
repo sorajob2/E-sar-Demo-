@@ -1,0 +1,512 @@
+<div class="page">
+
+    <div class="page-header">
+
+        <div>
+
+            <h2>รายงานผลการดำเนินงาน</h2>
+
+            <p>สรุปผลการดำเนินงานตามตัวชี้วัด</p>
+
+        </div>
+
+    </div>
+
+    <div class="filter-card">
+
+        <div class="grid">
+
+            <div>
+
+                <label>ประเภทรายงาน</label>
+
+                <select [(ngModel)]="reportType">
+
+                    <option value="plan">
+                        รายงานตามแผนกลยุทธ์
+                    </option>
+
+                    <option value="strategy">
+                        รายงานตามยุทธศาสตร์
+                    </option>
+
+                    <option value="category">
+                        รายงานตามหมวดหมู่
+                    </option>
+
+                    <option value="kpi">
+                        รายงานตามตัวชี้วัด
+                    </option>
+
+                    <option value="quarter">
+                        รายงานตามไตรมาส
+                    </option>
+
+                    <option value="indicator">
+                        รายตัวชี้วัด
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div>
+
+                <label>ปีการศึกษา</label>
+
+                <select [(ngModel)]="yearId">
+
+                    <option value="">
+                        ทั้งหมด
+                    </option>
+
+                    @for(year of years; track year.year_id){
+
+                    <option [value]="year.year_id">
+
+                        {{year.year_name}}
+
+                    </option>
+
+                    }
+
+                </select>
+
+            </div>
+
+            <div>
+
+                <label>แผนกลยุทธ์</label>
+
+                <select [(ngModel)]="planId">
+
+                    <option value="">
+                        ทั้งหมด
+                    </option>
+
+                    @for(plan of plans; track plan.plan_id){
+
+                    <option [value]="plan.plan_id">
+
+                        {{plan.plan_name}}
+
+                    </option>
+
+                    }
+
+                </select>
+
+            </div>
+
+            <div>
+
+                <label>ยุทธศาสตร์</label>
+
+                <select [(ngModel)]="strategyId">
+
+                    <option value="">
+                        ทั้งหมด
+                    </option>
+
+                    @for(strategy of strategies; track strategy.strategy_id){
+
+                    <option [value]="strategy.strategy_id">
+
+                        {{strategy.strategy_name}}
+
+                    </option>
+
+                    }
+
+                </select>
+
+            </div>
+
+            <div>
+
+                <label>หมวดหมู่</label>
+
+                <select [(ngModel)]="categoryId">
+
+                    <option value="">
+                        ทั้งหมด
+                    </option>
+
+                    @for(category of categories; track category.category_id){
+
+                    <option [value]="category.category_id">
+
+                        {{category.category_name}}
+
+                    </option>
+
+                    }
+
+                </select>
+
+            </div>
+
+            <div>
+
+                <label>ไตรมาส</label>
+
+                <select [(ngModel)]="quarterId">
+
+                    <option value="">
+                        ทั้งหมด
+                    </option>
+
+                    <option value="1">ไตรมาส 1</option>
+                    <option value="2">ไตรมาส 2</option>
+                    <option value="3">ไตรมาส 3</option>
+                    <option value="4">ไตรมาส 4</option>
+
+                </select>
+
+            </div>
+            @if(reportType=='indicator'){
+
+            <div>
+
+                <label>ค้นหาตัวชี้วัด</label>
+
+                <input type="text" [(ngModel)]="searchIndicator" placeholder="พิมพ์รหัสหรือชื่อตัวชี้วัด"
+                    style="width:100%;padding:10px;">
+
+            </div>
+
+            <div>
+
+                <label>ตัวชี้วัด</label>
+
+
+
+                <select [(ngModel)]="indicatorId">
+
+                    <option value="">
+                        เลือกตัวชี้วัด
+                    </option>
+
+                    @for(item of filteredIndicators; track item.indicator_id){
+
+                    <option [value]="item.indicator_id">
+
+                        {{item.indicator_code}}
+
+                        -
+
+                        {{item.indicator_name}}
+
+                    </option>
+
+                    }
+
+                </select>
+
+            </div>
+
+            @if(reportType=='indicator'){
+
+            <div>
+
+                <label>รูปแบบการแสดงผล</label>
+
+                <select [(ngModel)]="viewMode">
+
+                    <option value="quarter">
+                        รายไตรมาส
+                    </option>
+
+                    <option value="year">
+                        ผลรวมรายปี
+                    </option>
+
+                </select>
+
+            </div>
+
+            }
+
+            }
+
+        </div>
+
+        <div class="button-group">
+
+            <button class="btn-primary" (click)="search()">
+
+                แสดงรายงาน
+
+            </button>
+
+            <button class="btn-success" (click)="exportExcel()">
+
+                Export Excel
+
+            </button>
+
+            <button class="btn-danger" (click)="exportPdf()">
+
+                Export PDF
+
+            </button>
+
+        </div>
+
+    </div>
+<div id="report-content">
+    <div class="table-card">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    @if(reportType=='plan'){
+
+                    <th>แผนกลยุทธ์</th>
+                    <th>จำนวน KPI</th>
+                    <th>บรรลุ</th>
+
+                    }
+
+                    @else if(reportType=='strategy'){
+
+                    <th>ยุทธศาสตร์</th>
+                    <th>จำนวน KPI</th>
+                    <th>บรรลุ</th>
+
+                    }
+
+                    @else if(reportType=='category'){
+
+                    <th>หมวดหมู่</th>
+                    <th>จำนวน KPI</th>
+                    <th>บรรลุ</th>
+
+                    }
+
+                    @else if(reportType=='quarter'){
+
+                    <th>ไตรมาส</th>
+                    <th>รหัส KPI</th>
+                    <th>ชื่อ KPI</th>
+                    <th>เป้าหมาย</th>
+                    <th>ผลลัพธ์</th>
+                    <th>สถานะ</th>
+
+                    }
+
+                    @else if(reportType=='indicator'){
+
+                    <th>ไตรมาส</th>
+                    <th>เป้าหมาย</th>
+                    <th>ผลลัพธ์</th>
+                    <th>สถานะ</th>
+
+                    }
+
+                    @else{
+
+                    <th>แผนกลยุทธ์</th>
+                    <th>ยุทธศาสตร์</th>
+                    <th>หมวดหมู่</th>
+                    <th>รหัส KPI</th>
+                    <th>ชื่อ KPI</th>
+                    <th>เป้าหมาย</th>
+                    <th>ผลลัพธ์</th>
+                    <th>สถานะ</th>
+
+                    }
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @if(rows.length==0){
+
+                <tr>
+
+                    <td colspan="20" style="text-align:center;padding:30px;">
+
+                        กรุณาเลือกเงื่อนไขแล้วกด
+                        <b>"แสดงรายงาน"</b>
+
+                    </td>
+
+                </tr>
+
+                }
+
+
+
+                @else{
+
+                @for(row of tableRows; track $index){
+
+                <tr>
+
+                    @if(reportType=='plan'){
+
+                    <td>{{row.plan_name}}</td>
+                    <td>{{row.total_kpi}}</td>
+                    <td>{{row.success}}</td>
+
+                    }
+
+                    @else if(reportType=='strategy'){
+
+                    <td>{{row.strategy_name}}</td>
+                    <td>{{row.total_kpi}}</td>
+                    <td>{{row.success}}</td>
+
+                    }
+
+                    @else if(reportType=='category'){
+
+                    <td>{{row.category_name}}</td>
+                    <td>{{row.total_kpi}}</td>
+                    <td>{{row.success}}</td>
+
+                    }
+
+                    @else if(reportType=='quarter'){
+
+                    <td>{{row.quarter_name}}</td>
+
+                    <td>{{row.indicator_code}}</td>
+
+                    <td>{{row.indicator_name}}</td>
+
+                    <td>{{row.target_value}}</td>
+
+                    <td>
+
+                        {{ row.result_value }}
+
+                    </td>
+
+                    <td>
+
+                        @if(isSuccess(row)){
+
+                        <span style="color:green">
+                            ✅ บรรลุ
+                        </span>
+
+                        }@else{
+
+                        <span style="color:red">
+                            ❌ ไม่บรรลุ
+                        </span>
+
+                        }
+
+                    </td>
+
+                    }
+
+                    @else if(reportType=='indicator'){
+
+                    <td>{{row.quarter_name}}</td>
+
+                    <td>{{row.target_value}}</td>
+
+                    <td>
+
+                        @if(viewMode === 'quarter'){
+
+                        {{ row.cumulative_result }}
+
+                        }
+                        @else{
+
+                        {{ row.result_value }}
+
+                        }
+
+                    </td>
+
+                    <td>
+
+                        @if(isSuccess(row)){
+
+                        <span style="color:green">
+                            ✅ บรรลุ
+                        </span>
+
+                        }@else{
+
+                        <span style="color:red">
+                            ❌ ไม่บรรลุ
+                        </span>
+
+                        }
+
+                    </td>
+
+                    }
+
+                    @else{
+
+                    <td>{{row.plan_name}}</td>
+
+                    <td>{{row.strategy_name}}</td>
+
+                    <td>{{row.category_name}}</td>
+
+                    <td>{{row.indicator_code}}</td>
+
+                    <td>{{row.indicator_name}}</td>
+
+                    <td>{{row.target_value}}</td>
+
+                    <td>
+
+                        {{ row.result_value }}
+
+                    </td>
+
+                    <td>
+
+                        @if(isSuccess(row)){
+
+                        <span style="color:green">
+                            ✅ บรรลุ
+                        </span>
+
+                        }@else{
+
+                        <span style="color:red">
+                            ❌ ไม่บรรลุ
+                        </span>
+
+                        }
+
+                    </td>
+
+                    }
+
+                </tr>
+
+                }
+
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+    </div>
+
+    <app-report-chart [rows]="rows" [reportType]="reportType" [indicatorName]="selectedIndicatorName"
+        [displayMode]="viewMode"></app-report-chart>
+
+    <app-trend-chart>
+    </app-trend-chart>
+
+</div>

@@ -1,0 +1,21 @@
+<div class="page-header">
+
+  <button class="btn-back" (click)="goBack()">
+
+    ← กลับ
+
+  </button>
+
+</div>
+
+<h2>อัปโหลดหลักฐาน</h2>
+
+<input type="file" (change)="onFileSelected($event)">
+
+<br><br>
+
+<button type="button" (click)="upload()">
+
+  อัปโหลด
+
+</button>

@@ -1,0 +1,118 @@
+<div class="form-container">
+
+  <div class="form-header">
+
+<h2>
+
+  {{ isEdit
+    ? 'แก้ไขกลยุทธ์'
+    : 'เพิ่มกลยุทธ์' }}
+
+</h2>
+
+<p>
+  จัดการข้อมูลกลยุทธ์ภายใต้แผนยุทธศาสตร์
+</p>
+
+  </div>
+
+  <form
+    [formGroup]="form"
+    (ngSubmit)="save()"
+    class="strategy-form">
+
+<div class="form-group">
+
+  <label>
+    แผนยุทธศาสตร์
+  </label>
+
+  <select
+    formControlName="plan_id">
+
+    <option value="">
+      -- เลือกแผนยุทธศาสตร์ --
+    </option>
+
+    @for(
+      plan of plans;
+      track plan.plan_id
+    ){
+
+      <option
+        [value]="plan.plan_id">
+
+        {{ plan.plan_name }}
+
+      </option>
+
+    }
+
+  </select>
+
+</div>
+
+<div class="form-group">
+
+  <label>
+    รหัสกลยุทธ์
+  </label>
+
+  <input
+    type="text"
+    formControlName="strategy_code"
+    placeholder="เช่น ST01">
+
+</div>
+
+<div class="form-group">
+
+  <label>
+    ชื่อกลยุทธ์
+  </label>
+
+  <input
+    type="text"
+    formControlName="strategy_name"
+    placeholder="ระบุชื่อกลยุทธ์">
+
+</div>
+
+<div class="form-group">
+
+  <label>
+    รายละเอียด
+  </label>
+
+  <textarea
+    rows="5"
+    formControlName="description"
+    placeholder="รายละเอียดเพิ่มเติมของกลยุทธ์">
+  </textarea>
+
+</div>
+
+<div class="form-actions">
+
+  <button
+    type="button"
+    class="btn-cancel"
+    routerLink="/strategy">
+
+    ยกเลิก
+
+  </button>
+
+  <button
+    type="submit"
+    class="btn-save">
+
+    💾 บันทึกข้อมูล
+
+  </button>
+
+</div>
+
+  </form>
+
+</div>

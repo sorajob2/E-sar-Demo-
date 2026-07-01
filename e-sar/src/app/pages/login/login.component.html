@@ -1,0 +1,91 @@
+<div class="login-container">
+
+  <!-- ================= Left ================= -->
+
+  <div class="login-left">
+
+    <div class="brand">
+
+      <img
+        src="images/tsu-graduate.png"
+        class="logo"
+        alt="TSU Graduate School">
+
+      <h1>TSU Graduate e-SAR</h1>
+
+      <p>Educational Self Assessment Report</p>
+
+      <div class="divider"></div>
+
+    </div>
+
+    <div class="welcome">
+
+      <div class="welcome-icon">
+        📄
+      </div>
+
+      <div class="welcome-content">
+
+        <h2>ระบบรายงานการประเมินตนเอง</h2>
+
+        <p>
+          สำหรับการติดตามตัวชี้วัดและผลการดำเนินงาน
+          ของสำนักบัณฑิตวิทยาลัย มหาวิทยาลัยทักษิณ
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ================= Right ================= -->
+
+  <div class="login-right">
+
+    <div class="login-card">
+
+      <h2>เข้าสู่ระบบ</h2>
+
+      <p class="subtitle">
+
+        กรุณากรอก Username และ Password
+
+      </p>
+
+      <div class="form-group">
+
+        <label>Username</label>
+
+        <input
+          type="text"
+          [(ngModel)]="username"
+          placeholder="กรอกชื่อผู้ใช้">
+
+      </div>
+
+      <div class="form-group">
+
+        <label>Password</label>
+
+        <input
+          type="password"
+          [(ngModel)]="password"
+          placeholder="กรอกรหัสผ่าน">
+
+      </div>
+
+      <button
+        class="btn-login"
+        (click)="login()">
+
+        เข้าสู่ระบบ
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

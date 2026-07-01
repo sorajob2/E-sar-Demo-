@@ -1,0 +1,96 @@
+.kpi-card{
+
+  background:#fff;
+
+  border-radius:12px;
+
+  padding:20px;
+
+  margin-bottom:16px;
+
+  box-shadow:
+    0 2px 8px rgba(0,0,0,.1);
+
+}
+
+.kpi-header{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+}
+
+.name{
+
+  font-size:18px;
+
+  margin:10px 0;
+
+}
+
+.info{
+
+  display:flex;
+
+  gap:30px;
+
+}
+
+.status{
+
+  padding:6px 12px;
+
+  border-radius:20px;
+
+  color:white;
+
+  font-size:14px;
+
+}
+
+.success{
+  background:#2e7d32;
+}
+
+.warning{
+  background:#f57c00;
+}
+
+.danger{
+  background:#d32f2f;
+}
+
+.status {
+
+  padding: 6px 14px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  color: #fff;
+
+}
+
+.status.success {
+
+  background: #16a34a;
+
+}
+
+.status.progress {
+
+  background: #f59e0b;
+
+}
+
+.status.waiting {
+
+  background: #64748b;
+
+}

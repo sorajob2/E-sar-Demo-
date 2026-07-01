@@ -1,0 +1,234 @@
+<div class="dashboard">
+
+  <h1>Dashboard KPI</h1>
+
+  <div class="summary-grid">
+
+    <div class="card">
+      <h3>KPI ทั้งหมด</h3>
+      <h2>{{summary.total}}</h2>
+    </div>
+
+    <div class="card success">
+      <h3>บรรลุเป้าหมาย</h3>
+      <h2>{{summary.success}}</h2>
+    </div>
+
+    <div class="card danger">
+      <h3>ไม่บรรลุ</h3>
+      <h2>{{summary.failed}}</h2>
+    </div>
+
+    <div class="card info">
+      <h3>เปอร์เซ็นต์สำเร็จ</h3>
+      <h2>
+        {{summary.percent | number:'1.0-0'}}%
+      </h2>
+    </div>
+
+  </div>
+
+  <div class="card">
+
+    <h3>KPI ที่ยังไม่มีผลลัพธ์</h3>
+
+    <table class="table">
+
+      <thead>
+        <tr>
+          <th>รหัส KPI</th>
+          <th>ชื่อ KPI</th>
+          <th>ผู้รับผิดชอบ</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        @for(item of pendingKpis; track item.indicator_id){
+
+        <tr>
+
+          <td>{{item.indicator_code}}</td>
+
+          <td>{{item.indicator_name}}</td>
+
+          <td style="color:red;font-weight:bold">
+
+            {{item.owner_name}}
+
+          </td>
+
+        </tr>
+
+        }
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <hr>
+
+  <h2>ผลตามแผนกลยุทธ์</h2>
+
+  <table>
+
+    <tr>
+      <th>แผนกลยุทธ์</th>
+      <th>บรรลุ</th>
+      <th>ไม่บรรลุ</th>
+    </tr>
+
+    @for(item of plans; track item.plan_name){
+
+    <tr>
+
+      <td>{{item.plan_name}}</td>
+
+      <td>{{item.success}}</td>
+
+      <td>{{item.failed}}</td>
+
+    </tr>
+
+    }
+
+  </table>
+
+  <hr>
+
+  <h2>ผลตามยุทธศาสตร์</h2>
+
+  <input type="text" placeholder="ค้นหากลยุทธ์..." [(ngModel)]="searchStrategy" class="search-box" />
+
+  <table>
+
+    <tr>
+      <th>กลยุทธ์</th>
+      <th>บรรลุ</th>
+      <th>ไม่บรรลุ</th>
+    </tr>
+
+    @for(item of filteredStrategies; track item.strategy_name){
+
+    <tr>
+      <td>{{item.strategy_name}}</td>
+      <td>{{item.success}}</td>
+      <td>{{item.failed}}</td>
+    </tr>
+
+    }
+
+  </table>
+
+  <hr>
+
+  <h2>ผลตามหมวดหมู่</h2>
+
+  <input type="text" placeholder="ค้นหาหมวดหมู่..." [(ngModel)]="searchCategory" class="search-box" />
+
+  <table>
+
+    <tr>
+      <th>หมวดหมู่</th>
+      <th>บรรลุ</th>
+      <th>ไม่บรรลุ</th>
+    </tr>
+
+    @for(item of filteredCategories; track item.category_name){
+
+    <tr>
+      <td>{{item.category_name}}</td>
+      <td>{{item.success}}</td>
+      <td>{{item.failed}}</td>
+    </tr>
+
+    }
+
+  </table>
+
+  <hr>
+
+  <h2>ผลราย KPI</h2>
+
+  <input type="text" placeholder="ค้นหา KPI..." [(ngModel)]="searchKpi" class="search-box" />
+
+  <table>
+
+    <tr>
+      <th>รหัส</th>
+      <th>ชื่อ KPI</th>
+      <th>เป้าหมาย</th>
+      <th>ผลลัพธ์</th>
+      <th>สถานะ</th>
+    </tr>
+
+    @for(item of filteredKpis; track item.indicator_id){
+
+    <tr>
+
+      <td>
+        {{item.indicator_code}}
+      </td>
+
+      <td>
+        {{item.indicator_name}}
+      </td>
+
+      <td>
+        {{item.target_value}}
+      </td>
+
+      <td>
+        {{item.result_value}}
+      </td>
+
+      <td>
+
+        @if(item.result_count == 0){
+
+        <span style="color:#f59e0b;font-weight:bold">
+          ⚠️ ยังไม่มีผลลัพธ์
+        </span>
+
+        } @else if(item.target_direction === 'HIGHER_BETTER') {
+
+        @if(+item.result_value >= +item.target_value){
+
+        <span style="color:green;font-weight:bold">
+          ✅ บรรลุ
+        </span>
+
+        } @else {
+
+        <span style="color:red;font-weight:bold">
+          ❌ ไม่บรรลุ
+        </span>
+
+        }
+
+        } @else {
+
+        @if(+item.result_value <= +item.target_value){ <span style="color:green;font-weight:bold">
+          ✅ บรรลุ
+          </span>
+
+          } @else {
+
+          <span style="color:red;font-weight:bold">
+            ❌ ไม่บรรลุ
+          </span>
+
+          }
+
+          }
+
+      </td>
+    </tr>
+
+    }
+
+  </table>
+
+</div>

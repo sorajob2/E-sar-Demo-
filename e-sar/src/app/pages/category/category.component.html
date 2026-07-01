@@ -1,0 +1,103 @@
+<div class="page-header">
+
+  <div>
+
+<h2>หมวดหมู่ตัวชี้วัด/ผลลัพธ์</h2>
+
+<p>
+  จัดการหมวดหมู่สำหรับจัดกลุ่มตัวชี้วัด (KPI)
+</p>
+
+  </div>
+
+<button
+ class="btn-add"
+ routerLink="/category/new">
+
++ เพิ่มหมวดหมู่
+
+  </button>
+
+</div>
+
+<div class="table-container">
+
+  <table class="category-table">
+
+<thead>
+
+  <tr>
+
+    <th>ชื่อหมวดหมู่</th>
+    <th>กลยุทธ์</th>
+    <th width="180">จัดการ</th>
+
+  </tr>
+
+</thead>
+
+<tbody>
+
+  @for(
+    category of categories;
+    track category.category_id
+  ){
+
+    <tr>
+
+      <td>
+
+        <strong>
+          {{ category.category_name }}
+        </strong>
+
+      </td>
+
+      <td>
+
+        <span class="strategy-badge">
+
+          {{ category.strategy_name }}
+
+        </span>
+
+      </td>
+
+      <td>
+
+        <div class="action-buttons">
+
+          <button
+            class="btn-edit"
+            [routerLink]="[
+              '/category/edit',
+              category.category_id
+            ]">
+
+            แก้ไข
+
+          </button>
+
+          <button
+            class="btn-delete"
+            (click)="deleteCategory(
+              category.category_id
+            )">
+
+            ลบ
+
+          </button>
+
+        </div>
+
+      </td>
+
+    </tr>
+
+  }
+
+</tbody>
+
+  </table>
+
+</div>

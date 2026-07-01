@@ -1,0 +1,185 @@
+.page-header {
+
+display: flex;
+
+justify-content: space-between;
+
+align-items: center;
+
+margin-bottom: 24px;
+
+}
+
+.page-header h2 {
+
+margin: 0;
+
+font-size: 40px;
+
+color: #1e293b;
+
+}
+
+.page-header p {
+
+margin-top: 8px;
+
+color: #64748b;
+
+}
+
+.btn-add {
+
+background: #2563eb;
+
+color: white;
+
+border: none;
+
+padding: 12px 20px;
+
+border-radius: 10px;
+
+cursor: pointer;
+
+font-weight: 600;
+
+transition: .2s;
+
+}
+
+.btn-add:hover {
+
+background: #1d4ed8;
+
+}
+
+.table-container {
+
+background: white;
+
+border-radius: 18px;
+
+overflow: hidden;
+
+box-shadow:
+0 4px 20px rgba(0,0,0,.08);
+
+}
+
+.category-table {
+
+width: 100%;
+
+border-collapse: collapse;
+
+}
+
+.category-table thead {
+
+background: #2563eb;
+
+}
+
+.category-table th {
+
+color: white;
+
+text-align: left;
+
+padding: 16px;
+
+font-size: 15px;
+
+font-weight: 600;
+
+}
+
+.category-table td {
+
+padding: 16px;
+
+border-bottom:
+1px solid #e2e8f0;
+
+}
+
+.category-table tbody tr:hover {
+
+background: #f8fafc;
+
+}
+
+.strategy-badge {
+
+display: inline-block;
+
+padding: 6px 12px;
+
+border-radius: 20px;
+
+background: #dbeafe;
+
+color: #2563eb;
+
+font-size: 12px;
+
+font-weight: 600;
+
+}
+
+.action-buttons {
+
+display: flex;
+
+gap: 8px;
+
+}
+
+.btn-edit {
+
+background: #f59e0b;
+
+color: white;
+
+border: none;
+
+padding: 8px 14px;
+
+border-radius: 8px;
+
+cursor: pointer;
+
+font-weight: 600;
+
+}
+
+.btn-edit:hover {
+
+background: #d97706;
+
+}
+
+.btn-delete {
+
+background: #ef4444;
+
+color: white;
+
+border: none;
+
+padding: 8px 14px;
+
+border-radius: 8px;
+
+cursor: pointer;
+
+font-weight: 600;
+
+}
+
+.btn-delete:hover {
+
+background: #dc2626;
+
+}

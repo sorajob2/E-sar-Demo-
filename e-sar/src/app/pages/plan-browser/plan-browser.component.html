@@ -1,0 +1,100 @@
+<div class="page-header">
+
+  <div>
+
+    <h2>แผนกลยุทธ์</h2>
+
+    <p>
+      เลือกแผนกลยุทธ์เพื่อดูรายละเอียดยุทธศาสตร์และตัวชี้วัด
+    </p>
+
+  </div>
+
+</div>
+
+<div class="search-box">
+
+  <input
+    type="text"
+    placeholder="ค้นหาแผนกลยุทธ์..."
+    #searchInput>
+
+</div>
+
+<div class="table-card">
+
+  <table class="plan-table">
+
+    <thead>
+
+      <tr>
+
+        <th width="180">
+          รหัสแผน
+        </th>
+
+        <th>
+          ชื่อแผนกลยุทธ์
+        </th>
+
+        <th width="150">
+          จัดการ
+        </th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      @for(
+        plan of plans;
+        track plan.plan_id
+      ){
+
+        <tr>
+
+          <td>
+
+            <span class="plan-code">
+
+              {{ plan.plan_code }}
+
+            </span>
+
+          </td>
+
+          <td>
+
+            <div class="plan-name">
+
+              {{ plan.plan_name }}
+
+            </div>
+
+          </td>
+
+          <td>
+
+            <button
+              class="btn-open"
+              [routerLink]="[
+                '/strategy-browser',
+                plan.plan_id
+              ]">
+
+              เปิดแผน
+
+            </button>
+
+          </td>
+
+        </tr>
+
+      }
+
+    </tbody>
+
+  </table>
+
+</div>

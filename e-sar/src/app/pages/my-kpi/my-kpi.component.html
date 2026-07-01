@@ -1,0 +1,70 @@
+<h2>งานที่ต้องดำเนินการ</h2>
+
+@for(kpi of kpis; track kpi.indicator_id){
+
+<div class="kpi-card">
+
+    <div class="kpi-header">
+
+        <h3>
+            {{kpi.indicator_code}}
+        </h3>
+
+        <span class="status waiting" *ngIf="getStatus(kpi)=='NEED_TARGET'">
+
+            ยังไม่ได้ตั้งเป้าหมาย
+
+        </span>
+
+        <span class="status progress" *ngIf="getStatus(kpi)=='IN_PROGRESS'">
+
+            กำลังดำเนินการ
+
+        </span>
+
+        <span class="status success" *ngIf="getStatus(kpi)=='COMPLETED'">
+
+            เสร็จสมบูรณ์
+
+        </span>
+
+    </div>
+
+    <p class="name">
+        {{kpi.indicator_name}}
+    </p>
+
+    <div class="info">
+
+        <div>
+            เป้าหมาย :
+            {{kpi.target_value || '-'}}
+        </div>
+
+        <div>
+            ผลลัพธ์ :
+            {{kpi.result_value ?? '-'}}
+        </div>
+
+
+
+    </div>
+
+
+    <div class="actions">
+
+
+        <button [routerLink]="[
+    '/my-kpi-detail',
+    kpi.indicator_id
+  ]">
+
+            จัดการ KPI
+
+        </button>
+
+    </div>
+
+</div>
+
+}

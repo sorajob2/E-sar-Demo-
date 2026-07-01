@@ -1,0 +1,237 @@
+.page{
+
+    padding:24px;
+
+}
+
+.header-card{
+
+    background:#fff;
+
+    border-radius:14px;
+
+    padding:22px 28px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:24px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.header-card h2{
+
+    margin:0;
+
+    font-size:30px;
+
+    color:#1e3a8a;
+
+}
+
+.header-card p{
+
+    margin-top:10px;
+
+    font-size:18px;
+
+}
+
+.btn-add{
+
+    background:#2563eb;
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:12px 22px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.btn-add:hover{
+
+    background:#1d4ed8;
+
+}
+
+.table-card{
+
+    background:#fff;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+thead{
+
+    background:#2563eb;
+
+    color:#fff;
+
+}
+
+th{
+
+    padding:16px;
+
+    text-align:center;
+
+}
+
+td{
+
+    padding:14px;
+
+    border-bottom:1px solid #ececec;
+
+    text-align:center;
+
+}
+
+tbody tr:hover{
+
+    background:#f8fbff;
+
+}
+
+.quarter-badge{
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+    padding:5px 14px;
+
+    border-radius:30px;
+
+    font-weight:600;
+
+}
+
+.percent{
+
+    font-weight:bold;
+
+    color:#059669;
+
+}
+
+.no-file{
+
+    color:#999;
+
+}
+
+.actions{
+
+    white-space:nowrap;
+
+}
+
+.actions button{
+
+    margin:0 4px;
+
+    border:none;
+
+    border-radius:8px;
+
+    padding:8px 12px;
+
+    cursor:pointer;
+
+    color:#fff;
+
+    font-size:13px;
+
+}
+
+.btn-view{
+
+    background:#0ea5e9;
+
+}
+
+.btn-edit{
+
+    background:#f59e0b;
+
+}
+
+.btn-delete{
+
+    background:#ef4444;
+
+}
+
+.btn-view:hover{
+
+    background:#0284c7;
+
+}
+
+.btn-edit:hover{
+
+    background:#d97706;
+
+}
+
+.btn-delete:hover{
+
+    background:#dc2626;
+
+}
+
+.btn-back{
+
+    padding:12px 24px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#64748b;
+
+    color:#fff;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    margin-bottom:20px;
+
+    transition:.2s;
+
+}
+
+.btn-back:hover{
+
+    background:#475569;
+
+}

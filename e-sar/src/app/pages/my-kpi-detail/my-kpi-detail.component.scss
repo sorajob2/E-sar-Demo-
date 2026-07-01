@@ -1,0 +1,127 @@
+.page-title{
+
+  font-size:36px;
+  font-weight:700;
+
+  margin-bottom:30px;
+
+}
+
+.year-card{
+
+  background:white;
+
+  border-radius:16px;
+
+  padding:24px;
+
+  margin-bottom:24px;
+
+  box-shadow:
+  0 2px 10px rgba(0,0,0,.08);
+
+}
+
+.year-header{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  margin-bottom:20px;
+
+}
+
+.target-badge{
+
+  background:#fff4e5;
+
+  color:#f7941d;
+
+  padding:8px 16px;
+
+  border-radius:30px;
+
+  font-weight:600;
+
+}
+
+.quarter-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(220px,1fr));
+
+  gap:16px;
+
+}
+
+.quarter-card{
+
+  border:1px solid #e5e7eb;
+
+  border-radius:12px;
+
+  padding:16px;
+
+  transition:.2s;
+
+}
+
+.quarter-card:hover{
+
+  transform:translateY(-2px);
+
+  box-shadow:
+  0 4px 12px rgba(0,0,0,.08);
+
+}
+
+.quarter-title{
+
+  font-size:18px;
+
+  font-weight:700;
+
+  margin-bottom:10px;
+
+}
+
+.complete{
+
+  color:#16a34a;
+}
+
+.pending{
+
+  color:#dc2626;
+}
+
+.btn{
+
+  margin-top:10px;
+
+  width:100%;
+
+  border:none;
+
+  border-radius:10px;
+
+  padding:10px;
+
+  background:#0072CE;
+
+  color:white;
+
+  cursor:pointer;
+
+}
+
+.btn:hover{
+
+  background:#005cab;
+
+}
