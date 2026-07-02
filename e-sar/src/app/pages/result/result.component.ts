@@ -134,28 +134,21 @@ export class ResultComponent implements OnInit {
 
   goBack() {
 
-    if (this.authService.isStaff()) {
+  if (this.authService.isStaff()) {
 
-      this.router.navigate([
-        '/my-kpi-detail',
-        this.indicatorId
-      ]);
+    this.router.navigate([
+      '/my-kpi-detail',
+      this.indicatorId
+    ]);
 
-    } else {
+  } else {
 
-      this.router.navigate(
-        ['/result', this.indicatorId],
-        {
-          queryParams: {
-            categoryId: this.categoryId,
-            strategyId: this.strategyId,
-            planId: this.planId
-          }
-        }
-      );
-
-    }
+    this.router.navigate(
+      ['/kpi/category', this.categoryId]
+    );
 
   }
+
+}
 
 }
