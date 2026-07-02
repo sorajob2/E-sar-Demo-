@@ -47,7 +47,7 @@ app.use(
 );
 
 app.use("/api", authRoutes);
-app.use("/api", evidenceRoutes);
+app.use("/api/evidence", evidenceRoutes);
 app.use("/api", resultRoutes);
 app.use("/api", fiscalYearRoutes);
 app.use("/api", targetRoutes);
