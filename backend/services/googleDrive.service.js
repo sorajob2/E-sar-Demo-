@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const { google } = require("googleapis");
-const fs = require("fs");
+const { Readable } = require("stream");
 
 // =====================================
 // OAuth2
@@ -125,7 +125,7 @@ async function uploadFile(file, year, kpiCode) {
 
     media: {
       mimeType: file.mimetype,
-      body: fs.createReadStream(file.path),
+      body: Readable.from(file.buffer),
     },
 
     fields: "id,name,webViewLink",
@@ -143,10 +143,6 @@ async function uploadFile(file, year, kpiCode) {
     },
 
   });
-
-  if (fs.existsSync(file.path)) {
-    fs.unlinkSync(file.path);
-  }
 
   return {
 
