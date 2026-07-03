@@ -74,13 +74,16 @@ SUM(
 
 CASE
 
+WHEN rv.result_value IS NULL
+THEN 0
+
 WHEN i.target_direction='HIGHER_BETTER'
-AND COALESCE(rv.result_value,0)>=COALESCE(t.target_value,0)
+AND rv.result_value>=t.target_value
 
 THEN 1
 
 WHEN i.target_direction='LOWER_BETTER'
-AND COALESCE(rv.result_value,0)<=COALESCE(t.target_value,0)
+AND rv.result_value<=t.target_value
 
 THEN 1
 
@@ -94,13 +97,16 @@ SUM(
 
 CASE
 
+WHEN rv.result_value IS NULL
+THEN 0
+
 WHEN i.target_direction='HIGHER_BETTER'
-AND COALESCE(rv.result_value,0)<COALESCE(t.target_value,0)
+AND rv.result_value<t.target_value
 
 THEN 1
 
 WHEN i.target_direction='LOWER_BETTER'
-AND COALESCE(rv.result_value,0)>COALESCE(t.target_value,0)
+AND rv.result_value>t.target_value
 
 THEN 1
 
@@ -192,13 +198,16 @@ SUM(
 
 CASE
 
+WHEN rv.result_value IS NULL
+THEN 0
+
 WHEN i.target_direction='HIGHER_BETTER'
-AND COALESCE(rv.result_value,0)>=COALESCE(t.target_value,0)
+AND rv.result_value>=t.target_value
 
 THEN 1
 
 WHEN i.target_direction='LOWER_BETTER'
-AND COALESCE(rv.result_value,0)<=COALESCE(t.target_value,0)
+AND rv.result_value<=t.target_value
 
 THEN 1
 
@@ -212,13 +221,16 @@ SUM(
 
 CASE
 
+WHEN rv.result_value IS NULL
+THEN 0
+
 WHEN i.target_direction='HIGHER_BETTER'
-AND COALESCE(rv.result_value,0)<COALESCE(t.target_value,0)
+AND rv.result_value<t.target_value
 
 THEN 1
 
 WHEN i.target_direction='LOWER_BETTER'
-AND COALESCE(rv.result_value,0)>COALESCE(t.target_value,0)
+AND rv.result_value>t.target_value
 
 THEN 1
 
@@ -310,13 +322,16 @@ SUM(
 
 CASE
 
+WHEN rv.result_value IS NULL
+THEN 0
+
 WHEN i.target_direction='HIGHER_BETTER'
-AND COALESCE(rv.result_value,0)>=COALESCE(t.target_value,0)
+AND rv.result_value>=t.target_value
 
 THEN 1
 
 WHEN i.target_direction='LOWER_BETTER'
-AND COALESCE(rv.result_value,0)<=COALESCE(t.target_value,0)
+AND rv.result_value<=t.target_value
 
 THEN 1
 
@@ -330,13 +345,16 @@ SUM(
 
 CASE
 
+WHEN rv.result_value IS NULL
+THEN 0
+
 WHEN i.target_direction='HIGHER_BETTER'
-AND COALESCE(rv.result_value,0)<COALESCE(t.target_value,0)
+AND rv.result_value<t.target_value
 
 THEN 1
 
 WHEN i.target_direction='LOWER_BETTER'
-AND COALESCE(rv.result_value,0)>COALESCE(t.target_value,0)
+AND rv.result_value>t.target_value
 
 THEN 1
 
